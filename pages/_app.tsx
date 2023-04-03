@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
-import { MagnifyingGlass } from "@heroicons/react/outline";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,7 +10,7 @@ const inter = Inter({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={`${inter.variable} font-sans`}>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </main>
   );
 }
