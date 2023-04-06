@@ -1,45 +1,7 @@
+// CORE
 import Head from 'next/head';
-import Image from 'next/image';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import useMeasure from 'react-use-measure';
-
-type PageTabs = {
-   id: number;
-   name?: string | undefined;
-};
-
-const tabs: PageTabs[] = [
-   {
-      id: 1,
-      name: 'home',
-   },
-   {
-      id: 2,
-      name: 'product',
-   },
-   {
-      id: 3,
-      name: 'about us',
-   },
-];
 
 export default function Home() {
-   const [isOpen, setIsOpen] = useState<boolean>(false);
-   const [ref, { height }] = useMeasure();
-   const [activeTab, setActiveTab] = useState<number>(1);
-
-   function openToggle() {
-      setIsOpen((curr) => !curr);
-   }
-
-   function activeToggle(n: number) {
-      setActiveTab(n);
-   }
-
-   console.log();
-
    return (
       <>
          <Head>
@@ -49,44 +11,9 @@ export default function Home() {
             <link rel="icon" href="/favicon.ico" />
          </Head>
 
-         <nav className="flex items-center mx-5 p-2 gap-2">
-            {tabs.map((tab) => {
-               return (
-                  <div
-                     onClick={() => activeToggle(tab.id)}
-                     className="py-3 px-5 relative"
-                     key={tab.id}
-                  >
-                     <span>{tab.name}</span>
-                     {activeTab === tab.id ? (
-                        <motion.div
-                           layoutId="underline"
-                           className="absolute bottom-0 left-0 h-1 w-full bg-sky-200"
-                        ></motion.div>
-                     ) : null}
-                  </div>
-               );
-            })}
-         </nav>
-         {/* <div className="flex justify-center items-center font-sans">
-        <h1>Testing new Project Bro</h1>
-      </div>
-
-      <motion.button
-        onClick={openToggle}
-        whileHover={{ scale: 0.5 }}
-        className="py-2 px-5 rounded-md bg-red-200"
-      >
-        <h1>Click Me</h1>
-      </motion.button>
-
-      <motion.div animate={{ height }} className="bg-red-500">
-        <div ref={ref}>{isOpen && <div className="h-10 w-10"></div>}</div>
-      </motion.div>
-
-      <div>
-        <MagnifyingGlassIcon className="text-sm" />
-      </div> */}
+         <article className="w-full flex flex-col">
+            <h1>Happy Hacking</h1>
+         </article>
       </>
    );
 }
