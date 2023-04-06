@@ -30,8 +30,8 @@ const Modal = ({
    children,
    onMount,
    onUnmount,
-   modalClassname,
-   modalBodyClassname,
+   modalClassname = '',
+   modalBodyClassname = '',
    bodyVariants,
 }: ModalProps) => {
    return (
