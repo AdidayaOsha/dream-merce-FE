@@ -1,5 +1,6 @@
 // CORE
 import Head from 'next/head';
+import Header from '@/components/common/Header';
 
 export default function Home() {
    return (
@@ -11,9 +12,8 @@ export default function Home() {
             <link rel="icon" href="/favicon.ico" />
          </Head>
 
-         <article className="w-full flex flex-col">
-            <h1>Happy Hacking</h1>
-         </article>
+         {/* Testing */}
+         <Header />
       </>
    );
 }
