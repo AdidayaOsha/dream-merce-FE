@@ -12,7 +12,7 @@ import { FieldHookConfig, useField } from 'formik';
 type OtherProps = {
    label?: string | undefined;
 };
-// We need to extend our custom type with React JSX.InstricElement type definition;
+// We need to extend our custom type with React JSX.IntrinsicElements type definition;
 // https://dev.to/bnn1/custom-formik-components-with-typescript-and-chakra-ui-3f3c;
 type FormInputTextProps = OtherProps & FieldHookConfig<string> & JSX.IntrinsicElements['input'];
 
@@ -50,7 +50,7 @@ const FormInputText = ({ label, type = 'text', ...props }: FormInputTextProps) =
                type={asPassword ? inputType : type}
                className={`w-full flex items-center p-2 bg-gray-50 placeholder:text-gray-400 placeholder:text-opacity-75 placeholder:font-semibold rounded-md border focus:outline-none ${
                   isError ? 'ring-1 ring-red-500' : ''
-               } ${asPassword ? 'pr-9' : ''} disabled:cursor-default`}
+               } ${asPassword ? 'pr-9' : ''} cursor-pointer disabled:cursor-default`}
             />
 
             {asPassword ? (
