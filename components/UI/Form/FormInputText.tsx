@@ -43,31 +43,35 @@ const FormInputText = ({ label, type = 'text', ...props }: FormInputTextProps) =
             </motion.label>
          )}
 
-         <div className="w-full flex items-center relative">
-            <input
-               {...field}
-               {...props}
-               type={asPassword ? inputType : type}
-               className={`w-full flex items-center p-2 bg-gray-50 placeholder:text-gray-400 placeholder:text-opacity-75 placeholder:font-semibold rounded-md border focus:outline-none ${
-                  isError ? 'ring-1 ring-red-500' : ''
-               } ${asPassword ? 'pr-9' : ''} cursor-pointer disabled:cursor-default`}
-            />
+         <div className="h-16 flex flex-col">
+            <div className="w-full flex items-center relative">
+               <input
+                  {...field}
+                  {...props}
+                  type={asPassword ? inputType : type}
+                  className={`w-full flex items-center py-2 px-3 bg-gray-50 placeholder:text-gray-400 placeholder:text-opacity-60 placeholder:font-bold rounded-2xl border focus:outline-none ${
+                     isError ? 'ring-1 ring-red-400' : ''
+                  } ${
+                     asPassword ? 'pr-9' : ''
+                  } cursor-pointer disabled:cursor-default disabled:brightness-75`}
+               />
 
-            {asPassword ? (
-               <motion.span
-                  whileTap={{ scale: 0.95 }}
-                  onClick={togglePassword}
-                  className="absolute z-[1] right-3 cursor-pointer"
-               >
-                  {inputType === 'password' ? (
-                     <EyeIcon className="h-4 w-4 text-gray-600" />
-                  ) : (
-                     <EyeSlashIcon className="h-4 w-4 text-gray-600" />
-                  )}
-               </motion.span>
-            ) : null}
+               {asPassword ? (
+                  <motion.span
+                     whileTap={{ scale: 0.95 }}
+                     onClick={togglePassword}
+                     className="absolute z-[1] right-3 cursor-pointer"
+                  >
+                     {inputType === 'password' ? (
+                        <EyeIcon className="h-4 w-4 text-gray-600 hover:text-red-500 cursor-pointer transition" />
+                     ) : (
+                        <EyeSlashIcon className="h-4 w-4 text-gray-600 hover:text-red-500 cursor-pointer transition" />
+                     )}
+                  </motion.span>
+               ) : null}
+            </div>
+            {isError && <span className="ml-2 mt-1 text-xs text-red-400">{meta.error}</span>}
          </div>
-         {isError && <span className="ml-1 mt-1 text-xs text-red-500">{meta.error}</span>}
       </section>
    );
 };
