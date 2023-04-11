@@ -3,3 +3,25 @@
 @tailwind utilities;
 
 @import './button.css';
+
+* {
+   /* Disable blue highlight on touch event (eg: mobile devices) */
+   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+/* Disable form auto-fills */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+   transition: background-color 600000s 0s, color 600000s 0s;
+}
+input[data-autocompleted] {
+   background-color: transparent !important;
+}
+
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:focus {
+   transition: background-color 600000s 0s, color 600000s 0s;
+}
+textarea[data-autocompleted] {
+   background-color: transparent !important;
+}

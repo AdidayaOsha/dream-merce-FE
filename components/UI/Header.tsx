@@ -57,10 +57,10 @@ function Header() {
             </motion.nav>
          </div>
          <div className="flex justify-center items-center gap-3">
-            <Link href="Register" className="mr-2 font-bold">
+            <Link href="/auth/login" className="mr-2 font-bold">
                Login
             </Link>
-            <Link href="Register" className="mr-2 font-bold bg-sky-100 py-2 px-4 rounded-3xl">
+            <Link href="/auth/register" className="mr-2 font-bold bg-sky-100 py-2 px-4 rounded-3xl">
                Sign Up
             </Link>
          </div>
