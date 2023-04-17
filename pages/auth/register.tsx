@@ -57,7 +57,7 @@ const RegisterPage = () => {
             <title>Create Account | Dreammerce</title>
             <meta
                name="description"
-               content="This is dreammerce register page for creating new accounts."
+               content="This is Dreammerce register page for creating new accounts."
             />
          </Head>
 
@@ -83,7 +83,7 @@ const RegisterPage = () => {
                   LOGO HERE
                </span>
 
-               <article className="w-full md:w-1/2 lg:w-1/3 md:h-[60%] lg:h-full my-auto lg:my-0 bg-white rounded-3xl lg:rounded-none py-3 px-8 lg:px-12 lg:py-5 flex flex-col justify-center items-center gap-2 shadow-md">
+               <article className="w-full md:w-1/2 lg:w-[400px] lg:h-full my-auto lg:my-0 bg-white rounded-3xl lg:rounded-none py-3 px-8 lg:px-9 lg:py-5 flex flex-col justify-center items-center gap-2 shadow-md">
                   <section className="py-5 flex flex-col items-center gap-3 lg:gap-4">
                      <div
                         role="heading"
@@ -150,6 +150,7 @@ const RegisterPage = () => {
                               name="fullName"
                               placeholder="Full Name"
                               autoComplete="name"
+                              disabled={isSubmitting}
                            />
                            <FormInputText
                               name="username"
@@ -161,18 +162,21 @@ const RegisterPage = () => {
                               name="phoneNumber"
                               placeholder="Phone Number"
                               autoComplete="tel"
+                              disabled={isSubmitting}
                            />
                            <FormInputText
                               type="email"
                               name="email"
                               placeholder="Email"
                               autoComplete="email"
+                              disabled={isSubmitting}
                            />
                            <FormInputText
                               type="password"
                               name="password"
                               placeholder="Password"
                               autoComplete="new-password"
+                              disabled={isSubmitting}
                            />
 
                            <section className="w-full mt-2">
