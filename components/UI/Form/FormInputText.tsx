@@ -2,7 +2,7 @@
 import { useState, useCallback } from 'react';
 
 // COMPONENTS
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid';
 
 // FORMIK
@@ -17,7 +17,7 @@ type OtherProps = {
 type FormInputTextProps = OtherProps & FieldHookConfig<string> & JSX.IntrinsicElements['input'];
 
 const FormInputText = ({ label, type = 'text', ...props }: FormInputTextProps) => {
-   // TYPE
+   // INPUT TYPE
    const asPassword = type === 'password';
 
    // PASSWORD
@@ -34,13 +34,13 @@ const FormInputText = ({ label, type = 'text', ...props }: FormInputTextProps) =
    return (
       <section className="flex flex-col">
          {label && (
-            <motion.label
+            <m.label
                htmlFor={props.name}
                whileTap={{ scale: 0.95 }}
                className="w-fit text-lg font-bold mb-[2px] cursor-pointer"
             >
                {label}
-            </motion.label>
+            </m.label>
          )}
 
          <div className="h-16 flex flex-col">
@@ -49,15 +49,17 @@ const FormInputText = ({ label, type = 'text', ...props }: FormInputTextProps) =
                   {...field}
                   {...props}
                   type={asPassword ? inputType : type}
-                  className={`w-full flex items-center py-2 px-3 bg-gray-50 placeholder:text-gray-400 placeholder:text-opacity-60 placeholder:font-bold rounded-2xl border focus:outline-none ${
-                     isError ? 'ring-1 ring-red-400' : ''
+                  className={`w-full flex items-center py-2 px-3 bg-gray-50 placeholder:text-gray-400 placeholder:text-opacity-70 placeholder:font-bold rounded-2xl border focus:outline-none ${
+                     isError
+                        ? 'ring-1 ring-red-400'
+                        : 'hover:ring-1 hover:ring-offset-1 hover:ring-slate-300'
                   } ${
                      asPassword ? 'pr-9' : ''
-                  } cursor-pointer disabled:cursor-default disabled:brightness-75`}
+                  } font-medium cursor-pointer disabled:cursor-default disabled:opacity-50 disabled:hover:ring-0`}
                />
 
                {asPassword ? (
-                  <motion.span
+                  <m.span
                      whileTap={{ scale: 0.95 }}
                      onClick={togglePassword}
                      className="absolute z-[1] right-3 cursor-pointer"
@@ -67,10 +69,12 @@ const FormInputText = ({ label, type = 'text', ...props }: FormInputTextProps) =
                      ) : (
                         <EyeSlashIcon className="h-4 w-4 text-gray-600 hover:text-red-500 cursor-pointer transition" />
                      )}
-                  </motion.span>
+                  </m.span>
                ) : null}
             </div>
-            {isError && <span className="ml-2 mt-1 text-xs text-red-400">{meta.error}</span>}
+            {isError && (
+               <span className="ml-2 mt-1 text-xs text-red-400 font-semibold">{meta.error}</span>
+            )}
          </div>
       </section>
    );

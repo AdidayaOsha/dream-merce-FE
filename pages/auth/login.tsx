@@ -40,6 +40,7 @@ const LoginPage = () => {
          </Head>
 
          <section className="h-screen relative cursor-default">
+            {/* Background Image */}
             <div className="absolute inset-0">
                <Image
                   src="/images/background/login-bg.jpeg"
@@ -51,8 +52,9 @@ const LoginPage = () => {
                />
             </div>
 
+            {/* Actual Page Content */}
             <section className="h-full w-full p-3 lg:p-0 relative z-[1] flex justify-center lg:justify-start items-center">
-               <article className="w-full md:w-1/2 lg:w-1/3 lg:h-full py-3 px-8 lg:px-12 bg-white rounded-3xl lg:rounded-none flex flex-col justify-center gap-3 shadow-md">
+               <article className="w-full md:w-1/2 lg:w-[400px] lg:h-full py-3 px-8 lg:px-9 bg-white rounded-3xl lg:rounded-none flex flex-col justify-center gap-3 shadow-md">
                   <section className="w-full py-4 flex justify-center">
                      <m.span
                         whileTap={{ scale: 0.95 }}
@@ -120,12 +122,14 @@ const LoginPage = () => {
                               name="email"
                               autoComplete="email"
                               placeholder="Email"
+                              disabled={isSubmitting}
                            />
                            <FormInputText
                               type="password"
                               name="password"
                               autoComplete="current-password"
                               placeholder="Password"
+                              disabled={isSubmitting}
                            />
 
                            <div className="w-full mt-2 flex justify-center">
